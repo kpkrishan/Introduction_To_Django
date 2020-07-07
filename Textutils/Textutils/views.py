@@ -9,13 +9,13 @@ def home(request):
 #textutil pipeline
 
 def removepunc(request):
-    return HttpResponse("Remove punctuation!")
+    return HttpResponse("<h1>Remove punctuation!</h1>")
 
 def capfirst(request):
-    return HttpResponse("Capitalize")
+    return HttpResponse("<h2>Capitalize</h2>")
 
 def newline(request):
-    return HttpResponse("Add newline!")
+    return HttpResponse("add newline")
 
 def spaceremover(request):
     return HttpResponse("It removes the space")
