@@ -20,13 +20,13 @@ from . import views
 urlpatterns = [
     #welcome
     path('admin/', admin.site.urls),
-    path('',views.home,name="index"),
+    path('',views.home,name="home"),
     #pipeline 
-    path('removepunc',views.removepunc,name="removepunc"),
-    path('capfirst',views.capfirst,name="capfirst"),
-    path('newline',views.newline,name="newline"),
-    path('spaceremover',views.spaceremover,name="spaceremover"),
-    path('charcount',views.charcount,name="charcount")
+    path('removepunc',views.removepunc,name="removepunc")
+    # path('capfirst',views.capfirst,name="capfirst"),
+    # path('newline',views.newline,name="newline"),
+    # path('spaceremover',views.spaceremover,name="spaceremover"),
+    # path('charcount',views.charcount,name="charcount")
 
 
 ]
