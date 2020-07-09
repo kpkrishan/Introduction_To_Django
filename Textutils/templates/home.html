@@ -10,14 +10,15 @@
         <h3 style="color: rgb(238, 4, 55);">
             Enter Your Text Here!
         </h3>
-        <form action="/removepunc" method="get">
+        <form action="/analyze" method="get">
             <!-- 'name' identifies the textarea -->
-            <!-- name helps us to access the data entered in textarea using removepunc fucntion -->
+            <!-- name helps us to access the data entered in textarea using analyze fucntion -->
             <!-- if we dont give any value as input then default value will be printed .-->
             <textarea name='text' style= "margin: 0px;width: 1080px;height: 155px; color: rgb(19, 37, 139);" > </textarea> </br>
         </br>
         <!-- add a submit button and name it.-->
-        <input type="checkbox" name="removepunc" style="color: royalblue;" >Remove Punctuations </br>
+        <input type="checkbox" name="analyze" style="color: royalblue;" >Remove Punctuations </br>
+        <input type="checkbox" name="capfirst" style="color: royalblue;" >Full Capitalize </br>
             <button type="submit" style="color:red;"> Analyze Here
             
             </button>
