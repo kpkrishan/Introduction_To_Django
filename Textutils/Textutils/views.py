@@ -13,22 +13,34 @@ def home(request):
 #Pipeline in Django project
 #textutil pipeline
 
-def removepunc(request):
+def analyze(request):
     djtext=request.GET.get('text','default')
-    removepunc=request.GET.get('removepunc','off')
-    if removepunc=="on":
+    analyze=request.GET.get('analyze','off')
+    capfirst=request.GET.get('capfirst','off')
+    if analyze=="on":
         Punctuations='''!()-[]{};:'"\,<>./?@#$%^&*_~'''
         analyzed=""
         for char in djtext:
             if char not in Punctuations:
                 analyzed=analyzed+char
+        params={'purpose':'Remove Punctuations','analyzed_text':analyzed}
+        return render(request,'analyze.html',params)
+
+    elif(capfirst=='on'):
+        analyzed=''
+        for char in djtext:
+            analyzed=analyzed+char.upper()
+        
+        params={'purpose':'Changed to Upper Case','analyzed_text':analyzed}
+        return render(request,'analyze.html',params)
+
     else:
-        return HttpResponse(''' "Error!!" <a href='/Back>'>Go Back</a>''')
+        return HttpResponse("Error!!")
     #analyzed=djtext
-    params={'purpose':'Remove Punctuations','analyzed_text':analyzed}
+    
     print(djtext)
-    print(removepunc)
-    return render(request,'removepunc.html',params)
+    print(analyze)
+    
 
 # def capfirst(request):
 #     return HttpResponse(''' <h2>Capitalize</h2> <a href='https://github.com/kpkrishan?tab=repositories'>My Github</a>  <a href='/'> Back</a>''')
