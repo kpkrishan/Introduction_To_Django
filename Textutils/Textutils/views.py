@@ -19,6 +19,7 @@ def analyze(request):
     capfirst=request.GET.get('capfirst','off')
     newlineremover=request.GET.get('newlineremover','off')
     extraspaceremover=request.GET.get('extraspaceremover','off')
+    charcount=request.GET.get('charcount','off')
 
 
     if analyze=="on":
@@ -65,8 +66,16 @@ def analyze(request):
         # Analyze the text
         return render(request, 'analyze.html', params)
 
+    elif (charcount=='on'):
+        count=0
+        for char in djtext:
+            if char != ' ':
+                count=count+1
 
-           
+
+        params = {'purpose': 'Character Count', 'analyzed_text': count}
+        # Analyze the text
+        return render(request, 'analyze.html', params)
 
 
 
