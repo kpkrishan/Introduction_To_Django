@@ -17,6 +17,10 @@ def analyze(request):
     djtext=request.GET.get('text','default')
     analyze=request.GET.get('analyze','off')
     capfirst=request.GET.get('capfirst','off')
+    newlineremover=request.GET.get('newlineremover','off')
+    extraspaceremover=request.GET.get('extraspaceremover','off')
+
+
     if analyze=="on":
         Punctuations='''!()-[]{};:'"\,<>./?@#$%^&*_~'''
         analyzed=""
@@ -24,22 +28,58 @@ def analyze(request):
             if char not in Punctuations:
                 analyzed=analyzed+char
         params={'purpose':'Remove Punctuations','analyzed_text':analyzed}
+
         return render(request,'analyze.html',params)
+
 
     elif(capfirst=='on'):
         analyzed=''
         for char in djtext:
             analyzed=analyzed+char.upper()
         
+        
         params={'purpose':'Changed to Upper Case','analyzed_text':analyzed}
         return render(request,'analyze.html',params)
 
+    
+    elif(newlineremover == "on"):
+        analyzed = ''
+        for char in djtext:
+            if char != "\n":
+                analyzed = analyzed + char
+
+        params = {'purpose': 'Removed NewLines', 'analyzed_text': analyzed}
+        # Analyze the text
+        return render(request, 'analyze.html', params)
+
+    
+    elif(extraspaceremover == "on"):
+        analyzed = ''
+        for i in range(len(djtext)):
+            if djtext[i]== ' ' and djtext[i+1]== ' ':
+                pass
+            else:
+                analyzed=analyzed+djtext[i]
+
+        params = {'purpose': 'Extra Space Removed', 'analyzed_text': analyzed}
+        # Analyze the text
+        return render(request, 'analyze.html', params)
+
+
+           
+
+
+
     else:
         return HttpResponse("Error!!")
+
+
+
+
     #analyzed=djtext
     
-    print(djtext)
-    print(analyze)
+    #print(djtext)
+    #print(analyze)
     
 
 # def capfirst(request):
