@@ -13,15 +13,15 @@
   <body>
     <!-- As a link -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">TextUtils</a>
+        <a class="navbar-brand" href="#">TextUtils.com</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#">Features</a>
-            <a class="nav-item nav-link" href="#">Pricing</a>
+            <a class="nav-item nav-link" href="#">About</a>
+            <a class="nav-item nav-link" href="#">Contact Us</a>
             <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
           </div>
         </div>
@@ -31,6 +31,56 @@
           </form>
 
       </nav>
+      <div class="alert alert-info alert-dismissible fade show" role="alert">
+        <strong>Welcome To TextUtils!</strong> You can analyze your Text below.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class = "container">
+        <form action="/analyze" method="get">
+
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1"  >Enter Your Text Here</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name='text' rows="6"></textarea>
+          </div>
+        
+
+          <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" name="removepunc" id="customSwitch1" >
+          <label class="custom-control-label" for="customSwitch1">Remove Punctuations</label> </br>
+          </div>
+
+          <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" name="capfirst" id="customSwitch2" >
+          <label class="custom-control-label" for="customSwitch2">Full Capitalize</label></br>
+          </div>
+
+          <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" name="newlineremover" id="customSwitch3" >
+          <label class="custom-control-label" for="customSwitch3">Remove Newline</label></br>
+          </div>
+
+          <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" name="extraspaceremover" id="customSwitch4" >
+          <label class="custom-control-label" for="customSwitch4">Extra Space Remover</label></br>
+          </div>
+
+          <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" name="charcount" id="customSwitch5" >
+          <label class="custom-control-label" for="customSwitch5">Character Count</label> </div></br>
+
+          </div>
+
+          <button type="submit" class="btn btn-info">Analyze Text</button>
+          
+        </form>
+        
+
+      </div>
+
+      
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
