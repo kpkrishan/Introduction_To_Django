@@ -15,14 +15,14 @@ def home(request):
 
 def analyze(request):
     djtext=request.GET.get('text','default')
-    analyze=request.GET.get('analyze','off')
+    removepunc=request.GET.get('removepunc','off')
     capfirst=request.GET.get('capfirst','off')
     newlineremover=request.GET.get('newlineremover','off')
     extraspaceremover=request.GET.get('extraspaceremover','off')
     charcount=request.GET.get('charcount','off')
 
 
-    if analyze=="on":
+    if removepunc=="on":
         Punctuations='''!()-[]{};:'"\,<>./?@#$%^&*_~'''
         analyzed=""
         for char in djtext:
