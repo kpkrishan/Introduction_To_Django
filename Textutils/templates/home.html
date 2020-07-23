@@ -21,7 +21,7 @@
           <div class="navbar-nav">
             <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="#">About</a>
-            <a class="nav-item nav-link" href="#">Contact Us</a>
+            <a class="nav-item nav-link" href="contact.html">Contact Us</a>
             <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
           </div>
         </div>
@@ -38,8 +38,9 @@
         </button>
       </div>
 
+      
       <div class = "container">
-        <form action="/analyze" method="get">
+        <form action="/analyze" method="post" >{% csrf_token %}
 
           <div class="form-group">
             <label for="exampleFormControlTextarea1"  >Enter Your Text Here</label>
@@ -72,8 +73,7 @@
           <label class="custom-control-label" for="customSwitch5">Character Count</label> </div></br>
           <button type="submit" class="btn btn-info">Analyze Text</button>
           </div>
-
-          
+     
           
         </form>
         
