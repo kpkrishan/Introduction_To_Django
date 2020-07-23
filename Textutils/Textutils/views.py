@@ -14,12 +14,12 @@ def home(request):
 #textutil pipeline
 
 def analyze(request):
-    djtext=request.GET.get('text','default')
-    removepunc=request.GET.get('removepunc','off')
-    capfirst=request.GET.get('capfirst','off')
-    newlineremover=request.GET.get('newlineremover','off')
-    extraspaceremover=request.GET.get('extraspaceremover','off')
-    charcount=request.GET.get('charcount','off')
+    djtext=request.POST.get('text','default')
+    removepunc=request.POST.get('removepunc','off')
+    capfirst=request.POST.get('capfirst','off')
+    newlineremover=request.POST.get('newlineremover','off')
+    extraspaceremover=request.POST.get('extraspaceremover','off')
+    charcount=request.POST.get('charcount','off')
 
 
     if removepunc=="on":
@@ -46,7 +46,7 @@ def analyze(request):
     elif(newlineremover == "on"):
         analyzed = ''
         for char in djtext:
-            if char != "\n":
+            if char != "\n" and char != "\r":
                 analyzed = analyzed + char
 
         params = {'purpose': 'Removed NewLines', 'analyzed_text': analyzed}
