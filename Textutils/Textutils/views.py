@@ -102,3 +102,8 @@ def analyze(request):
 
 # def charcount(request):
 #     return HttpResponse('''<h1>counting the character!</h1> <a href='/'> Back</a>''')
+
+
+def Contact_Us(request):
+    return render(request,'contact.html')
+
