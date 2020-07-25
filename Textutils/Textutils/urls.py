@@ -23,7 +23,8 @@ urlpatterns = [
     path('',views.home,name="home"),
     #pipeline 
     path('analyze',views.analyze,name="analyze"),
-    path('Contact_Us',views.Contact_Us,name="Contact_Us")
+    path('Contact_Us',views.Contact_Us,name="Contact_Us"),
+    path('about',views.about,name="about")
     # path('newline',views.newline,name="newline"),
     # path('spaceremover',views.spaceremover,name="spaceremover"),
     # path('charcount',views.charcount,name="charcount")
