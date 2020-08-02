@@ -30,20 +30,23 @@ def analyze(request):
                 analyzed=analyzed+char
         params={'purpose':'Remove Punctuations','analyzed_text':analyzed}
 
-        return render(request,'analyze.html',params)
+        #return render(request,'analyze.html',params)
+        djtext=analyzed
 
 
-    elif(capfirst=='on'):
+    if(capfirst=='on'):
         analyzed=''
         for char in djtext:
             analyzed=analyzed+char.upper()
         
         
         params={'purpose':'Changed to Upper Case','analyzed_text':analyzed}
-        return render(request,'analyze.html',params)
+
+        # return render(request,'analyze.html',params)
+        djtext=analyzed
 
     
-    elif(newlineremover == "on"):
+    if(newlineremover == "on"):
         analyzed = ''
         for char in djtext:
             if char != "\n" and char != "\r":
@@ -51,10 +54,11 @@ def analyze(request):
 
         params = {'purpose': 'Removed NewLines', 'analyzed_text': analyzed}
         # Analyze the text
-        return render(request, 'analyze.html', params)
+        # return render(request, 'analyze.html', params)
+        djtext=analyzed
 
     
-    elif(extraspaceremover == "on"):
+    if(extraspaceremover == "on"):
         analyzed = ''
         for i in range(len(djtext)):
             if djtext[i]== ' ' and djtext[i+1]== ' ':
@@ -64,9 +68,10 @@ def analyze(request):
 
         params = {'purpose': 'Extra Space Removed', 'analyzed_text': analyzed}
         # Analyze the text
-        return render(request, 'analyze.html', params)
+        #return render(request, 'analyze.html', params)
+        djtext=analyzed
 
-    elif (charcount=='on'):
+    if (charcount=='on'):
         count=0
         for char in djtext:
             if char != ' ':
@@ -75,12 +80,16 @@ def analyze(request):
 
         params = {'purpose': 'Character Count', 'analyzed_text': count}
         # Analyze the text
-        return render(request, 'analyze.html', params)
+        #djtext=analyzed
+
+    if(removepunc!='on' and newlineremover!='on' and capfirst!='on' and extraspaceremover!='on' and charcount !='on' ):
+        return HttpResponse("Error! Please Select any operation or give text ")
+    
+    return render(request, 'analyze.html', params)
 
 
+    
 
-    else:
-        return HttpResponse("Error!!")
 
 
 
